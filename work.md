@@ -8,9 +8,11 @@
 - [x] sanitise instruction
 - [x] Max instruction size 100 chars
 - [x] Process instruction
-- [ ] Ignore instruction to go to "lostMarkers"
+- [x] Ignore instruction to go to "lostMarkers"
+- [x] Informs map of "lostMarker" position
 
 ## Considerations
 - Grid size that is negative? - currently allowed
 - What should happen if instruction size > 100 chars? - currently truncated and error message generated
 - What should happen if invalid instructions? currently stripped and error message
+- Use events or something so that robots can communicate to the map

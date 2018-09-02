@@ -16,8 +16,7 @@ export default class Mars {
   }
 
   public addLostMarker(point: Point): void {
-    const pointExists: Point | undefined = this.lostMarkers.find((value: Point): boolean => (point.x === value.x && point.y === value.y));
-    if(pointExists) return;
+    if(this.findMarkerInLost(point)) return;
     this.lostMarkers.push(point);
   }
 
@@ -26,5 +25,8 @@ export default class Mars {
     x = (x > GRID_THRESHOLD.x)? GRID_THRESHOLD.x : x;
     y = (y > GRID_THRESHOLD.y)? GRID_THRESHOLD.y : y;
     return {x, y};
+  }
+  public findMarkerInLost(point: Point): Point | undefined {
+    return this.lostMarkers.find((value: Point): boolean => (point.x === value.x && point.y === value.y));
   }
 }

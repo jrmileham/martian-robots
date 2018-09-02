@@ -1,4 +1,5 @@
 import Point from '../util/Point';
+import Mars from './Mars';
 
 export const Orientation: ReadonlyArray<string> = Object.freeze(['N','E','S','W']);
 export const INSTRUCTION_REGEX: RegExp = /[^RLF]/gi
@@ -9,16 +10,18 @@ export enum INSTRUCTION_TO_FUNCTION {
 };
 
 export default class Robot {
-  public readonly isLost: boolean;
+  public isLost: boolean;
   public instruction: string;
   public orientation: number;
-  public readonly position: Point;
+  public position: Point;
+  private mars: Mars;
 
-  constructor(position: Point, orientation: number){
+  constructor(position: Point, orientation: number, mars: Mars){
     this.orientation = orientation;
     this.isLost = false;
     this.instruction = '';
     this.position = position;
+    this.mars = mars;
   }
 
   public processInstruction(instruction: string): void {
@@ -36,19 +39,30 @@ export default class Robot {
     }
   }
   private moveInstruction(move: string): void {
+    const { x, y} = this.position;
+    const newPosition: Point = { x, y };
     switch(this.orientation) {
       case 0 :
-        this.position.y++;
+        newPosition.y++;
         break;
       case 1 :
-        this.position.x++;
+        newPosition.x++;
         break;
       case 2 :
-        this.position.y--;
+        newPosition.y--;
         break;
       default :
-        this.position.x--;
+        newPosition.x--;
     }
+    // Don't move if the new position is a lost marker
+    if(this.mars.findMarkerInLost(newPosition))return;
+
+    // Check of lost
+    if(newPosition.x > this.mars.maxPosition.x || newPosition.y > this.mars.maxPosition.y ){
+      this.isLost = true;
+      this.mars.lostMarkers.push(this.position);
+    }
+    this.position = newPosition;
   }
   private sanitiseInstuction(instruction: string): string {
     const sanitised: string = instruction.replace(INSTRUCTION_REGEX, '').toUpperCase();
