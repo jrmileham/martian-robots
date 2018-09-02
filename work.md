@@ -7,7 +7,7 @@
 ## Robots
 - [x] sanitise instruction
 - [x] Max instruction size 100 chars
-- [ ] Process instruction
+- [x] Process instruction
 - [ ] Ignore instruction to go to "lostMarkers"
 
 ## Considerations
