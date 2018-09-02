@@ -7,7 +7,8 @@
     "outDir": "dist",
     "moduleResolution": "node",
     "module": "commonjs",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "lib": ["es5", "es6", "es7"]
   },
   "exclude": [
         "node_modules",
