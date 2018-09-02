@@ -1,0 +1,17 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "target": "es5",
+    "strict": true,
+    "rootDir": "src",
+    "outDir": "dist",
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "allowSyntheticDefaultImports": true
+  },
+  "exclude": [
+        "node_modules",
+        "**/*.test.ts",
+        "dist",
+    ]
+}

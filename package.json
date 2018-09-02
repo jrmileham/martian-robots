@@ -1,0 +1,36 @@
+{
+  "name": "martian-robots",
+  "version": "1.0.0",
+  "description": "Martian Robots",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run clean && tsc",
+    "clean": "rm -fr dist",
+    "dev": "nodemon",
+    "postinstall": "npm build",
+    "start": "npm run dev",
+    "test": "npm run test:file test/**/*.ts",
+    "test:file": "mocha --opts mocha.opts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrmileham/martian-robots.git"
+  },
+  "author": "Johnny Mileham (jrmileham)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jrmileham/martian-robots/issues"
+  },
+  "homepage": "https://github.com/jrmileham/martian-robots#readme",
+  "devDependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.9.4",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.4",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.0.3"
+  },
+  "dependencies": {}
+}
