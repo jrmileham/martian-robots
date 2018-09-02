@@ -87,4 +87,13 @@ describe('Test Robot', function(): void {
     expect(robot_2.isLost).to.be.false;
     expect(robot_2.position).to.deep.equal({x:11, y:19});
   });
+  it('Prints its status', function(): void {
+    const robot_1: Robot = new Robot({x:10, y:20}, 0, mars);
+    const robot_2: Robot = new Robot({x:10, y:19}, 0, mars);
+    robot_1.processInstruction('F');
+    robot_2.processInstruction('FRF');
+
+    expect(robot_1.printPrintPostion()).to.equal('10 21 N LOST');
+    expect(robot_2.printPrintPostion()).to.equal('11 19 E');
+  });
 });

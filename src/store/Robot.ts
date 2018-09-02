@@ -68,5 +68,10 @@ export default class Robot {
     const sanitised: string = instruction.replace(INSTRUCTION_REGEX, '').toUpperCase();
     return (sanitised.length > 100)? sanitised.substr(0, 100) : sanitised;
   }
-
+  public printPrintPostion(): string {
+    const { isLost, orientation, position  } = this;
+    const { x, y } = position;
+    return `${x} ${y} ${Orientation[orientation]}${(isLost)? ' LOST': ''}`
+  }
+ 
 }

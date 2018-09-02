@@ -10,6 +10,7 @@
 - [x] Process instruction
 - [x] Ignore instruction to go to "lostMarkers"
 - [x] Informs map of "lostMarker" position
+- [x] print its position
 
 ## Considerations
 - Grid size that is negative? - currently allowed
