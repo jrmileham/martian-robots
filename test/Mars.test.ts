@@ -7,9 +7,9 @@ describe('Test Mars', function(): void {
     const mars: Mars = new Mars({x:5, y:5});
 
     expect(mars.lostMarkers.length).to.equal(0);
-    mars.addLostMarker({x:2, y:3});
-    mars.addLostMarker({x:2, y:3});
-    mars.addLostMarker({x:1, y:2});
+    mars.addLostMarker({x:2, y:3, orientation: 0});
+    mars.addLostMarker({x:2, y:3, orientation: 0});
+    mars.addLostMarker({x:1, y:2, orientation: 0});
     
     expect(mars.lostMarkers.length).to.equal(2);
   });
